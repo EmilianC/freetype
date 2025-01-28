@@ -249,9 +249,6 @@ if (BUILD_FRAMEWORK)
 endif ()
 
 
-# Find dependencies
-include(FindPkgConfig)
-
 if (NOT FT_DISABLE_HARFBUZZ)
   set(HARFBUZZ_MIN_VERSION "2.0.0")
   if (FT_REQUIRE_HARFBUZZ)
@@ -289,6 +286,8 @@ if (NOT FT_DISABLE_BZIP2)
   else ()
     find_package(BZip2)
   endif ()
+
+  include(FindPkgConfig)
   pkg_check_modules(PC_BZIP2 bzip2)
 endif ()
 
